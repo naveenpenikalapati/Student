@@ -15,14 +15,15 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
     
-     @GetMapping("/add")
+     @GetMapping("/allstudents")
      public  List<Student> getAllStudents(Model model) {
         List<Student> students = studentService.getAllStudents();
+        System.out.println("in StudentController");
         model.addAttribute("students", students);
         return students;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/savestudent")
     public Student saveStudent(@ModelAttribute Student student) {
         
         return studentService.saveStudent(student);
